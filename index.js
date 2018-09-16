@@ -4,19 +4,23 @@
 
 function SentenceCheck(str) {
   this.sentence = str;
+  this.longestWord = null;
 }
 
 SentenceCheck.prototype.findLongestWord = function() {
   let longestWord = '';
-  let longestWordLength = longestWord.length;
+  let longestWordLength = 0;
   this.sentence.split(' ').forEach((word) => {
     if (word.length > longestWordLength) {
       longestWord = word;
       longestWordLength = longestWord.length;
     }
   });
-  return `${longestWordLength} and ${longestWord}`;
+  this.longestWord = longestWord;
+  return `${longestWordLength} and ${this.longestWord}`;
 }
 
 const currentSentence = new SentenceCheck('The cow jumped over the moon.');
 console.log(currentSentence.findLongestWord());
+
+module.exports = SentenceCheck;
