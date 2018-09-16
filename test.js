@@ -18,6 +18,8 @@ describe('SentenceCheck unit tests', () => {
     });
 
     it('findLongestWord checks the length of each word and doesn\'t include punctuation', () => {
+      // here testing to make sure that the longest word doesnt include punctuation and therefor
+      // if a false positive
       const removedPunctuation = currentSentence.longestWord.match(/[^\W]+/g).join(' ');
       expect(currentSentence.longestWord).toEqual(removedPunctuation);
     });
